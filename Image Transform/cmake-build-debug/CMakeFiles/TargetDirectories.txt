@@ -1,0 +1,3 @@
+/home/trent/CLionProjects/acsf/Image Transform/cmake-build-debug/CMakeFiles/acsf.dir
+/home/trent/CLionProjects/acsf/Image Transform/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/trent/CLionProjects/acsf/Image Transform/cmake-build-debug/CMakeFiles/rebuild_cache.dir

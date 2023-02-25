@@ -1,0 +1,10 @@
+# ninja log v5
+6651	9157	1677279934159099531	CMakeFiles/acsf.dir/main.cpp.o	a51ca12ef014b35f
+4	11465	1677279912971465211	CMakeFiles/acsf.dir/tests/part2.cpp.o	b5e403681ede3cd
+1	115	1677292011542537665	build.ninja	b698b3bedf3d1f99
+4843	8211	1677279933195114808	CMakeFiles/acsf.dir/ImageTransform.cpp.o	5a4a09d492e28f14
+3	60891	1677279985830438377	CMakeFiles/acsf.dir/uiuc/catch/catchmain.cpp.o	912adcb0972e59fd
+4	6650	1677279931647139602	CMakeFiles/acsf.dir/uiuc/lodepng/lodepng.cpp.o	b8f91645251951e0
+11467	14974	1677279916479400156	CMakeFiles/acsf.dir/uiuc/HSLAPixel.cpp.o	405289508d699bcd
+0	10071	1677279911575491652	CMakeFiles/acsf.dir/tests/part1.cpp.o	b7be33eaab52189d
+5	4843	1677279929831169087	CMakeFiles/acsf.dir/uiuc/PNG.cpp.o	f40091d9e73687c2
