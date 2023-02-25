@@ -156,5 +156,16 @@ PNG illinify(PNG image) {
 */
 PNG watermark(PNG firstImage, PNG secondImage) {
 
+	int maxWidth = (firstImage.width() > secondImage.width()) ? secondImage.width() : firstImage.width();
+	int maxHeight = (firstImage.height() > secondImage.height()) ? secondImage.height() : firstImage.height();
+
+	for(int x = 0; x < maxWidth; x++){
+		for(int y = 0; y < maxHeight; y++){
+			HSLAPixel &sourcePixel = firstImage.getPixel(x, y);
+			HSLAPixel &stencilPixel = secondImage.getPixel(x, y);
+			sourcePixel.l = (stencilPixel.l == 1.0) ? sourcePixel.l + 0.2 : sourcePixel.l;
+		}
+	}
+
   return firstImage;
 }
