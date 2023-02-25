@@ -68,6 +68,28 @@ PNG grayscale(PNG image) {
  */
 PNG createSpotlight(PNG image, int centerX, int centerY) {
 
+	auto calculateScale = [](int x, int y, int centerX, int centerY) {
+		double scale = 1;
+		double xDiff = abs(x - centerX);
+		double yDiff = abs(y - centerY);
+		double distance = sqrt(pow(xDiff, 2) + pow(yDiff, 2));
+
+		if(distance > 160)
+		{
+			scale = 0.2;
+		} else {
+			scale = 1 - (.005 * distance);
+		}
+		return scale;
+	};
+
+	for (unsigned x = 0; x < image.width(); x++) {
+		for (unsigned y = 0; y < image.height(); y++) {
+			HSLAPixel & pixel = image.getPixel(x, y);
+			pixel.l = calculateScale(x, y, centerX, centerY) * pixel.l;
+		}
+	}
+
   return image;
   
 }
