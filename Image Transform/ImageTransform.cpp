@@ -106,36 +106,20 @@ PNG createSpotlight(PNG image, int centerX, int centerY) {
  * @return The illinify'd image.
 **/
 PNG illinify(PNG image) {
-    double illiniOrange = 11;
-    double illiniOrangeHigh = 371;
-    double illiniBlue = 216;
-    double illiniBlueLow = -144;
-    double pixelDiffBlue, pixelDiffOrange, blue, orange;
+    double orange = 11;
+    double blue = 216;
+    double diffBlue, diffOrange;
 
     for (unsigned x = 0; x < image.width(); x++) {
         for (unsigned y = 0; y < image.height(); y++) {
             HSLAPixel &pixel = image.getPixel(x, y);
-            
-            blue = illiniBlue;
-            orange = illiniOrange;
 
-            if(pixel.h > illiniBlue) {
-            	orange = illiniOrangeHigh;
-            }
-            else if(pixel.h < illiniOrange) {
-            	blue = illiniBlueLow;
-            }
+            diffBlue = abs(std::min(pixel.h - blue, 360 - pixel.h - blue));
+            diffOrange = abs(std::min(pixel.h - orange, 360 - pixel.h - orange));
 
-			pixelDiffBlue = abs(pixel.h - blue);
-            pixelDiffOrange = abs(pixel.h - orange);
-
-            if(pixelDiffBlue < pixelDiffOrange)
-            {
-            	pixel.h = illiniBlue;
-            } else {
-            	pixel.h = illiniOrange;
-            }
-
+            pixel.h = (diffBlue < diffOrange)
+            	? blue
+            	: orange;
         }
     }
     return image;
