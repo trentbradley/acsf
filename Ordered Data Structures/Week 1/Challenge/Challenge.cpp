@@ -1,6 +1,3 @@
-//
-// Created by trent on 3/3/23.
-//
 #include <iostream>
 #include <stack>
 #include <queue>
