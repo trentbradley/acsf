@@ -283,6 +283,43 @@ LinkedList<T> LinkedList<T>::merge(const LinkedList<T>& other) const {
   // 4. Remember, DO NOT try to use insertOrdered here. That would be
   //    very slow.
 
+  Node* cL = left.head_;
+  Node* cR = right.head_;
+
+  if(cL && !cR)
+  {
+    merged = left;
+  } else if(!cL && cR)
+  {
+    merged = right;
+  }
+  else {
+    while(cL || cR)
+    {
+      if(cL && cR)
+      {
+        if(cL->data <= cR->data)
+        {
+          merged.pushBack(cL->data);
+          cL = cL->next;
+        } else {
+          merged.pushBack(cR->data);
+          cR = cR->next;
+        }
+      }
+      else if(cL)
+      {
+        merged.pushBack(cL->data);
+        cL = cL->next;
+      }
+      else if(cR)
+      {
+        merged.pushBack(cR->data);
+        cR = cR->next;
+      }
+    }
+  }
+
   // -----------------------------------------------------------
 
   // We return the merged list by value here. It may be copied out of the
