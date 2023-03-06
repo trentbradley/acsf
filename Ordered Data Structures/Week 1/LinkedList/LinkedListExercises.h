@@ -286,14 +286,6 @@ LinkedList<T> LinkedList<T>::merge(const LinkedList<T>& other) const {
   Node* cL = left.head_;
   Node* cR = right.head_;
 
-  if(cL && !cR)
-  {
-    merged = left;
-  } else if(!cL && cR)
-  {
-    merged = right;
-  }
-  else {
     while(cL || cR)
     {
       if(cL && cR)
@@ -318,7 +310,6 @@ LinkedList<T> LinkedList<T>::merge(const LinkedList<T>& other) const {
         cR = cR->next;
       }
     }
-  }
 
   // -----------------------------------------------------------
 
