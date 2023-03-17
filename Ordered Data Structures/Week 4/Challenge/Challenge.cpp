@@ -70,7 +70,49 @@ child exists, [null] is displayed.
 
 void downHeap(Node *n) {
 
-    // Implement downHeap() here.
+    if(n == nullptr) return;
+    if(n->left || n->right)
+    {
+    	int t;
+    	if(n->left && n->right)
+    	{
+    		if(n->left->value < n->right->value)
+    		{
+    			if(n->left->value < n->value)
+    			{
+    				t = n->left->value;
+    				n->left->value = n->value;
+    				n->value = t;
+    				downHeap(n->left);
+    			}
+    		} else {
+    			if(n->right->value < n->value)
+    			{
+    				t = n->right->value;
+    				n->right->value = n->value;
+    				n->value = t;
+    				downHeap(n->right);
+    			}
+    		}
+    	} else if (n->left)
+    	{
+    		if(n->left->value < n->value)
+    		{
+    			t = n->left->value;
+    			n->left->value = n->value;
+    			n->value = t;
+    			downHeap(n->left);
+    		}
+    	} else {
+    		if(n->right->value < n->value)
+    		{
+    			t = n->right->value;
+    			n->right->value = n->value;
+    			n->value = t;
+    			downHeap(n->right);
+    		}
+    	}
+    }
 
 }
 
@@ -85,12 +127,12 @@ void printTree(Node *n) {
 }
 
 int main() {
-    Node *n = new Node(100);
-    n->left = new Node(1);
-    n->right = new Node(2);
-    n->right->left = new Node(3);
-    n->right->right = new Node(4);
-    n->right->right->right = new Node(5);
+    Node *n = new Node(19);
+    n->left = new Node(10);
+    n->right = new Node(777);
+    // n->right->left = new Node(3);
+    // n->right->right = new Node(4);
+    // n->right->right->right = new Node(5);
 
     downHeap(n);
 
