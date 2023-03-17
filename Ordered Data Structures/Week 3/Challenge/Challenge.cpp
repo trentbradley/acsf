@@ -40,8 +40,19 @@ public:
 
 void computeHeight(Node *n) {
 
-    // Implement computeHeight() here.
-
+	if(n == nullptr) return;
+	computeHeight(n->left);
+	computeHeight(n->right);
+	int h;
+	n->height = 0;
+	if(n->left || n->right)
+	{
+		if(n->left)
+			h = n->left->height;
+		else
+			h = n->right->height;
+		n->height = 1 + h;
+	}
 }
 
 // This function prints the tree in a nested linear format.
