@@ -96,7 +96,13 @@ static void treeFactory(GenericTree<int>& tree) {
   // Build the contents of tree so that it matches the diagram above
   // when you print it out. The main() function runs that test for you.
 
-  // ...
+  tree.clear();
+
+  GenericTree<int>::TreeNode* root = tree.createRoot(4);
+  GenericTree<int>::TreeNode* eight = root->addChild(8);
+  eight->addChild(16)->addChild(42);
+  eight->addChild(23);
+  root->addChild(15);
 
 }
 
