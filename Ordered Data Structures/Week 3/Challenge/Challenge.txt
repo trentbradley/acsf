@@ -1,0 +1,11 @@
+Implement a function that computes the height of each node in a binary tree and stores it in each node of the tree. Recall that the height of a node is the number of edges in its longest chain of descendants.
+
+Consider a tree with root node A that has two child nodes B1 and B2. Let node B1 have no children. Let node B2 have one child C. Then the height of A would be two, because its longest chain of descendants (A -> B2 -> C) has two edges (A -> B2 and B2 -> C).
+
+The starter code below defines a class called "Node" that has two child pointers ("left" , "right") and an integer "height" member variable. There is also a constructor Node() that initializes the children to nullptr and the height to -1.
+
+Your job is to implement the procedure "computeHeight(Node *n)" that computes the height of the node n as well as the height of its children (if any).
+
+There is also a helper function "printTree(const Node *n)" that prints the current heights showing the tree as embedded parentheses. If a child is nullptr, then it will appear as an empty pair of parentheses: "()". The constructor initializes the height to -1 even though a node with no children should have a height of zero. If you see any -1 entries after you've run your computeHeight() procedure, you may have missed one or more nodes.
+
+The helper function printTreeVertical(const Node *n) is also available to you (although its complex definition is not shown). It displays a verbose, vertical printout of your tree, where the root is shown at the top, and left children are shown on higher rows than right children.
