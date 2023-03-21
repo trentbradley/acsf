@@ -5,12 +5,19 @@
 #include <functional>
 
 int insert(int value, std::vector<int> &table) {
-    // Code to insert value into a hashed location in table
-    // where table is a vector of length 1000.
-    // Returns the number of collisions encountered when
-    // trying to insert value into table.
-
-    return 0;
+    int collision = 0;
+    int hash = value % 1000;
+    while(true)
+    {
+    	if(table[hash] == -1)
+    	{
+    		table[hash] = value;
+    		break;
+    	}
+    	collision++;
+    	hash++;
+    }
+    return collision;
 }
 
 int main() {
