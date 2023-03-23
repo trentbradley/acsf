@@ -2,11 +2,11 @@
 
 class DisjointSets {
 public:
-    int s[256];
+	int s[256];
 
-    DisjointSets() { for (int i = 0; i < 256; i++) s[i] = -1; }
+	DisjointSets() { for (int i = 0; i < 256; i++) s[i] = -1; }
 
-    int find(int i);
+	int find(int i);
 };
 
 /* Modify the find() method below to
@@ -18,26 +18,27 @@ public:
  */
 
 int DisjointSets::find(int i) {
-    if ( s[i] < 0 ) {
-        return i;
-    } else {
-        return find(s[i]);
-    }
+  if ( s[i] < 0 ) {
+    return i;
+  } else {
+    s[i] = find(s[i]);
+    return s[i];
+  }
 }
 
 int main() {
-    DisjointSets d;
+  DisjointSets d;
 
-    d.s[1] = 3;
-    d.s[3] = 5;
-    d.s[5] = 7;
-    d.s[7] = -1;
+  d.s[1] = 3;
+  d.s[3] = 5;
+  d.s[5] = 7;
+  d.s[7] = -1;
 
-    std::cout << "d.find(3) = " << d.find(3) << std::endl;
-    std::cout << "d.s(1) = " << d.s[1] << std::endl;
-    std::cout << "d.s(3) = " << d.s[3] << std::endl;
-    std::cout << "d.s(5) = " << d.s[5] << std::endl;
-    std::cout << "d.s(7) = " << d.s[7] << std::endl;
+  std::cout << "d.find(3) = " << d.find(3) << std::endl;
+  std::cout << "d.s(1) = " << d.s[1] << std::endl;
+  std::cout << "d.s(3) = " << d.s[3] << std::endl;
+  std::cout << "d.s(5) = " << d.s[5] << std::endl;
+  std::cout << "d.s(7) = " << d.s[7] << std::endl;
 
-    return 0;
+  return 0;
 }
