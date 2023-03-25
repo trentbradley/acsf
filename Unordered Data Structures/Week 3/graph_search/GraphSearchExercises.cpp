@@ -50,8 +50,19 @@ int GridGraph::countEdges() const {
   int numEdges = 0;
 
   // =======================================================================
-  // TODO: Your code here!
+  // Inspired by GridGraph::printDetails
   // =======================================================================
+
+  for (const auto& kv : adjacencyMap) {
+    const auto& p1 = kv.first;
+    const auto& p1_neighbors = kv.second;
+	if (!p1_neighbors.empty()) {
+	    for (const auto& p2 : p1_neighbors) {
+	      numEdges++;
+	    }
+    }
+  }
+  numEdges = numEdges / 2;
 
   return numEdges;
 }
