@@ -520,7 +520,7 @@ std::list<PuzzleState> puzzleBFS(const PuzzleState& start, const PuzzleState& go
     // We'll need to loop over the neighbors that are the points adjacent to curState.
     // We need a collection of neighbors we're going to loop over.
     
-    auto neighbors = {start}; // Change this! This line is totally wrong.
+    auto neighbors = curState.getAdjacentStates(); // Change this! This line is totally wrong.
 
     // Hint: Look at PuzzleState.h
     // =====================================================================
@@ -530,7 +530,7 @@ std::list<PuzzleState> puzzleBFS(const PuzzleState& start, const PuzzleState& go
       // ==================================================================
       // TODO: Your code here!
       // Check whether the neighbor has already been visited.
-      bool neighborWasAlreadyVisited = false; // Change this...
+      bool neighborWasAlreadyVisited = visitedSet.count(neighbor);
       // ==================================================================
 
       if (!neighborWasAlreadyVisited) {
@@ -541,13 +541,13 @@ std::list<PuzzleState> puzzleBFS(const PuzzleState& start, const PuzzleState& go
         // Record that the curState is the predecessor of the neighbor point,
         // since curState has just led to the discovery of this neighbor for
         // the first time.
-        // ...
+        pred[neighbor] = curState;
 
         // Add neighbor to the visited set.
-        // ...
+        visitedSet.insert(neighbor);
 
         // Push neighbor into the exploration queue.
-        // ...
+        exploreQ.push(neighbor);
 
         // ================================================================
 
